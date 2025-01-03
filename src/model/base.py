@@ -61,7 +61,7 @@ class Base(DeclarativeBase):
         return {c.key: getattr(self, c.key) for c in inspect(self).mapper.column_attrs}
 
     def __repr__(self) -> str:
-        return f"<{self.id} | {self.verbose_name}>"
+        return f"{self.id} | {self.verbose_name}"
 
 
 Model = TypeVar("Model", bound=type[Base])

@@ -20,8 +20,17 @@ class QuestionTechnology(Base):
     )
 
     question = relationship(
-        "Question", back_populates="question_technologies", uselist=False
+        "Question",
+        back_populates="question_technologies",
+        uselist=False,
+        lazy="joined"
     )
     technology = relationship(
-        "Technology", back_populates="question_technologies", uselist=False
+        "Technology",
+        back_populates="question_technologies",
+        uselist=False,
+        lazy="joined"
     )
+
+    def __repr__(self):
+        return f"{str(self.question)[:20]} | {str(self.technology)[:10]}"
